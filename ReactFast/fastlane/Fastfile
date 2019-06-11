@@ -1,0 +1,21 @@
+fastlane_version '2.125.2'
+
+# before_all do
+#   ensure_git_branch
+#   ensure_git_status_clean
+#   git_pull
+# end
+
+platform :ios do
+   # iOS Lanes
+   lane :tests do
+    run_tests(project: "./ios/ReactFast.xcodeproj")
+  end
+end
+
+platform :android do
+  # Android Lanes
+  lane :tests do
+    gradle(task: 'test', project_dir: 'android/')
+  end
+end
